@@ -1,8 +1,6 @@
 package com.example.telegrambot.service;
 
-import com.example.telegrambot.exception.DogNotFoundException;
 import com.example.telegrambot.exception.VolunteerNotFoundException;
-import com.example.telegrambot.model.Dog;
 import com.example.telegrambot.model.Volunteer;
 import com.example.telegrambot.repository.VolunteerRepository;
 import org.slf4j.Logger;
