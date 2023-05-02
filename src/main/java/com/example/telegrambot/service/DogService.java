@@ -16,7 +16,7 @@ import java.util.Collection;
 public class DogService {
 
     private final DogRepository repository;
-    private static final Logger logger = LoggerFactory.getLogger(DogService.class);
+    //private static final Logger logger = LoggerFactory.getLogger(DogService.class);
 
     public DogService(DogRepository repository) {
         this.repository = repository;
@@ -30,7 +30,7 @@ public class DogService {
      * @exception DogNotFoundException
      */
     public Dog getById(Long id){
-        logger.info("Was invoked method to get a dog by id={}", id);
+//        logger.info("Was invoked method to get a dog by id={}", id);
         return this.repository.findById(id)
                 .orElseThrow(DogNotFoundException::new);
     }
@@ -42,7 +42,7 @@ public class DogService {
      * @see DogService
      */
     public Dog add (Dog dog){
-        logger.info("Was invoked method to add a dog");
+//        logger.info("Was invoked method to add a dog");
 
         return this.repository.save(dog);
     }
@@ -55,7 +55,7 @@ public class DogService {
      * @exception DogNotFoundException
      */
     public Dog update (Dog dog){
-        logger.info("Was invoked method to update a dog");
+//        logger.info("Was invoked method to update a dog");
         if(dog.getId() != null && getById(dog.getId()) != null){
             return this.repository.save(dog);
         }
@@ -69,7 +69,7 @@ public class DogService {
      * @see DogService
      */
     public Collection <Dog> getAll(){
-        logger.info("Was invoked method to get all dogs");
+//        logger.info("Was invoked method to get all dogs");
 
         return this.repository.findAll();
     }
@@ -79,7 +79,7 @@ public class DogService {
      * @param id
      */
     public void removeById(Long id){
-        logger.info("Was invoked method to remove a dog by id={}", id);
+//        logger.info("Was invoked method to remove a dog by id={}", id);
 
         this.repository.deleteById(id);
     }

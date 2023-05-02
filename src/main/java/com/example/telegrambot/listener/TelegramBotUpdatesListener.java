@@ -16,7 +16,7 @@ import java.util.List;
 @Component
 public class TelegramBotUpdatesListener implements UpdatesListener {
 
-    private final Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
+    //private final Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
     private final TelegramBot telegramBot;
 
     public TelegramBotUpdatesListener(TelegramBot telegramBot) {
@@ -32,7 +32,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
     public int process(List<Update> updates) {
         try {
             updates.forEach(update -> {
-                logger.info("Processing update: {}", update);
+                //logger.info("Processing update: {}", update);
                 Message message = update.message();
                 Long chatId = message.chat().id();
                 String text = message.text();
@@ -41,12 +41,12 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                     SendMessage sendMessage = new SendMessage(chatId, "Привет!Это приют кошек и собак");
                     SendResponse sendResponse = telegramBot.execute(sendMessage);
                     if (!sendResponse.isOk()) {
-                        logger.error("Error during sending message: {}", sendResponse.description());
+                        //logger.error("Error during sending message: {}", sendResponse.description());
                     }
                 }
             });
         } catch (Exception e) {
-            logger.error(e.getMessage(), e);
+            //logger.error(e.getMessage(), e);
         }
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }

@@ -15,7 +15,7 @@ import java.util.Collection;
 @Service
 public class CatService {
     private final CatRepository repository;
-    private static final Logger logger = LoggerFactory.getLogger(CatService.class);
+    //private static final Logger logger = LoggerFactory.getLogger(CatService.class);
 
     public CatService(CatRepository repository) {
         this.repository = repository;
@@ -29,7 +29,7 @@ public class CatService {
      * @exception CatNotFoundException
      */
     public Cat getById (Long id){
-        logger.info("Was invoked method to get a cat by id={}", id);
+        //logger.info("Was invoked method to get a cat by id={}", id);
         return this.repository.findById(id)
                 .orElseThrow(CatNotFoundException::new);
     }
@@ -42,7 +42,7 @@ public class CatService {
      * @see CatService
      */
     public Cat add (Cat cat){
-        logger.info("Was invoked method to add a cat");
+        //logger.info("Was invoked method to add a cat");
 
         return this.repository.save(cat);
     }
@@ -55,7 +55,7 @@ public class CatService {
      * @exception CatNotFoundException
      */
     public Cat update (Cat cat){
-        logger.info("Was invoked method to update a cat");
+        //logger.info("Was invoked method to update a cat");
         if(cat.getId() != null && getById(cat.getId()) != null){
             return this.repository.save(cat);
         }
@@ -69,7 +69,7 @@ public class CatService {
      * @see CatService
      */
     public Collection <Cat> getAll (){
-        logger.info("Was invoked method to get all cats");
+        //logger.info("Was invoked method to get all cats");
 
         return  this.repository.findAll();
     }
@@ -79,7 +79,7 @@ public class CatService {
      * @param id
      */
     public void removeById(Long id){
-        logger.info("Was invoked method to remove a cat by id={}", id);
+        //logger.info("Was invoked method to remove a cat by id={}", id);
 
         this.repository.deleteById(id);
     }

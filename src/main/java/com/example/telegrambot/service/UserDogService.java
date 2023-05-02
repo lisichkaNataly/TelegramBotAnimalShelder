@@ -13,7 +13,7 @@ public class UserDogService {
 
     private final UserDogRepository repository;
 
-    private final Logger logger = (Logger) LoggerFactory.getLogger(UserDogService.class);
+//    private final Logger logger = (Logger) LoggerFactory.getLogger(UserDogService.class);
 
     public UserDogService(UserDogRepository repository) {
         this.repository = repository;
@@ -27,7 +27,7 @@ public class UserDogService {
      * @exception UserDogNotFoundException
      */
     public UserDog getById (Long id){
-        logger.info("Was invoked method to get a UserDog by id={}");
+//        logger.info("Was invoked method to get a UserDog by id={}");
         return this.repository.findById(id)
                 .orElseThrow(UserDogNotFoundException::new);
     }
@@ -40,7 +40,7 @@ public class UserDogService {
      * @see UserDogService
      */
     public UserDog add (UserDog userDog){
-        logger.info("Was invoked method to add a userDog");
+//        logger.info("Was invoked method to add a userDog");
 
         return this.repository.save(userDog);
     }
@@ -53,7 +53,7 @@ public class UserDogService {
      * @exception UserDogNotFoundException
      */
     public UserDog update (UserDog userDog){
-        logger.info("Was invoked method to update a UserDog");
+//        logger.info("Was invoked method to update a UserDog");
         if(userDog.getId() != null && getById(userDog.getId()) != null){
             return this.repository.save(userDog);
         }
@@ -67,7 +67,7 @@ public class UserDogService {
      * @see UserDogService
      */
     public Collection<UserDog> getAll (){
-        logger.info("Was invoked method to get all UserDogs");
+//        logger.info("Was invoked method to get all UserDogs");
 
         return  this.repository.findAll();
     }
@@ -79,7 +79,7 @@ public class UserDogService {
      * @return UserDogService
      */
     public Collection<UserDog> getByChatId(Long chatId) {
-        logger.info("Was invoked method to remove a UserDog by chatId={}");
+//        logger.info("Was invoked method to remove a UserDog by chatId={}");
         return repository.findByChatId(chatId);
     }
 
@@ -88,7 +88,7 @@ public class UserDogService {
      * @param id
      */
     public void removeById(Long id){
-        logger.info("Was invoked method to remove a UserDog by id={}");
+//        logger.info("Was invoked method to remove a UserDog by id={}");
 
         this.repository.deleteById(id);
     }

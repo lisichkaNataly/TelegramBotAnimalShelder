@@ -15,7 +15,7 @@ import java.util.Collection;
 @Service
 public class VolunteerService {
     private VolunteerRepository repository;
-    private static final Logger logger = LoggerFactory.getLogger(VolunteerService.class);
+//    private static final Logger logger = LoggerFactory.getLogger(VolunteerService.class);
 
     public VolunteerService(VolunteerRepository repository) {
         this.repository = repository;
@@ -29,7 +29,7 @@ public class VolunteerService {
      * @exception VolunteerNotFoundException
      */
     public Volunteer getById(Long id){
-        logger.info("Was invoked method to get a volunteer by id={}", id);
+//        logger.info("Was invoked method to get a volunteer by id={}", id);
         return this.repository.findById(id)
                 .orElseThrow(VolunteerNotFoundException::new);
     }
@@ -41,7 +41,7 @@ public class VolunteerService {
      * @see VolunteerService
      */
     public Volunteer add (Volunteer volunteer){
-        logger.info("Was invoked method to as a volunteer");
+//        logger.info("Was invoked method to as a volunteer");
 
         return repository.save(volunteer);
     }
@@ -53,7 +53,7 @@ public class VolunteerService {
      * @exception VolunteerNotFoundException
      */
     public Volunteer update (Volunteer volunteer){
-        logger.info("Was invoked method to update a volunteer");
+//        logger.info("Was invoked method to update a volunteer");
         if(volunteer.getId() != null && getById(volunteer.getId()) != null){
             return this.repository.save(volunteer);
         }
@@ -66,7 +66,7 @@ public class VolunteerService {
      * @see  VolunteerService
      */
     public Collection <Volunteer> getAll (){
-        logger.info("Was invoked method to get all volunteers");
+//        logger.info("Was invoked method to get all volunteers");
         return repository.findAll();
     }
 
@@ -75,7 +75,7 @@ public class VolunteerService {
      * @param id
      */
     public void removeById(Long id){
-        logger.info("Was invoked method to remove a volunteer by id={}", id);
+//        logger.info("Was invoked method to remove a volunteer by id={}", id);
 
         this.repository.deleteById(id);
     }

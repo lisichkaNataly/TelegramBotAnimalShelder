@@ -12,7 +12,7 @@ import java.util.Collection;
 @Service
 public class UserCatService {
     private final UserCatRepository repository;
-    private static final Logger logger = LoggerFactory.getLogger(UserCatService.class);
+//    private static final Logger logger = LoggerFactory.getLogger(UserCatService.class);
 
     public UserCatService(UserCatRepository repository) {
         this.repository = repository;
@@ -27,7 +27,7 @@ public class UserCatService {
      * @exception UserCatNotFoundException
      */
     public UserCat getById (Long id){
-        logger.info("Was invoked method to get a UserCat by id={}", id);
+//        logger.info("Was invoked method to get a UserCat by id={}", id);
         return this.repository.findById(id)
                 .orElseThrow(UserCatNotFoundException::new);
     }
@@ -40,7 +40,7 @@ public class UserCatService {
      * @see UserCatService
      */
     public UserCat add (UserCat userCat){
-        logger.info("Was invoked method to add a UserCat");
+//        logger.info("Was invoked method to add a UserCat");
 
         return this.repository.save(userCat);
     }
@@ -53,7 +53,7 @@ public class UserCatService {
      * @exception CatNotFoundException
      */
     public UserCat update (UserCat userCat){
-        logger.info("Was invoked method to update a UserCat");
+//        logger.info("Was invoked method to update a UserCat");
         if(userCat.getId() != null && getById(userCat.getId()) != null){
             return this.repository.save(userCat);
         }
@@ -67,7 +67,7 @@ public class UserCatService {
      * @see UserCatService
      */
     public Collection<UserCat> getAll (){
-        logger.info("Was invoked method to get all UserCats");
+//        logger.info("Was invoked method to get all UserCats");
 
         return  this.repository.findAll();
     }
@@ -79,7 +79,7 @@ public class UserCatService {
      * @return UserCatService
      */
     public Collection<UserCat> getByChatId(Long chatId) {
-        logger.info("Was invoked method to remove a UserCat by chatId={}", chatId);
+//        logger.info("Was invoked method to remove a UserCat by chatId={}", chatId);
         return repository.findByChatId(chatId);
     }
 
@@ -88,7 +88,7 @@ public class UserCatService {
      * @param id
      */
     public void removeById(Long id){
-        logger.info("Was invoked method to remove a UserCat by id={}", id);
+//        logger.info("Was invoked method to remove a UserCat by id={}", id);
 
         this.repository.deleteById(id);
     }

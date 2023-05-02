@@ -16,7 +16,7 @@ public class ReportDataService {
 
     private final ReportDataRepository reportRepository;
 
-    private final Logger logger = LoggerFactory.getLogger(ReportDataService.class);
+//    private final Logger logger = LoggerFactory.getLogger(ReportDataService.class);
 
     public ReportDataService(ReportDataRepository reportRepository) {
         this.reportRepository = reportRepository;
@@ -29,7 +29,7 @@ public class ReportDataService {
      * @exception ReportDataNotFoundException
      */
     public ReportData findById (Long id){
-        logger.info("Was invoked method to get a report by id={}", id);
+//        logger.info("Was invoked method to get a report by id={}", id);
         return reportRepository.findById(id).orElseThrow(ReportDataNotFoundException::new);
     }
 
@@ -39,7 +39,7 @@ public class ReportDataService {
      * @return
      */
     public ReportData findByChatId(Long chatId){
-        logger.info("Report is not found!", chatId);
+//        logger.info("Report is not found!", chatId);
         return reportRepository.findByChatId(chatId);
     }
 
@@ -49,7 +49,7 @@ public class ReportDataService {
      * @return
      */
     public Collection <ReportData> findListByChatId (Long chatId){
-        logger.info("Was invoked method to findListByChatId a report by id={}", chatId);
+//        logger.info("Was invoked method to findListByChatId a report by id={}", chatId);
         return reportRepository.findListByChatId(chatId);
     }
 
@@ -59,7 +59,7 @@ public class ReportDataService {
      * @return
      */
     public ReportData save(ReportData report){
-        logger.info("Was invoked method to save a report");
+//        logger.info("Was invoked method to save a report");
         return reportRepository.save(report);
     }
 
@@ -68,7 +68,7 @@ public class ReportDataService {
      * @param id
      */
     public void remove(Long id){
-        logger.info("Was invoked method to remove a report by id={}", id);
+//        logger.info("Was invoked method to remove a report by id={}", id);
         reportRepository.deleteById(id);
     }
 
@@ -77,7 +77,7 @@ public class ReportDataService {
      * @return
      */
     public List<ReportData> getAll (){
-        logger.info("Was invoked method to get all reports");
+//        logger.info("Was invoked method to get all reports");
         return reportRepository.findAll();
     }
 
@@ -88,7 +88,7 @@ public class ReportDataService {
      * @return
      */
     public List <ReportData> getAllReports(Integer pageNumber, Integer pageSize){
-        logger.info("Was invoked method to get all reports");
+//        logger.info("Was invoked method to get all reports");
         PageRequest pageRequest = PageRequest.of(pageNumber - 1 , pageSize);
         return reportRepository.findAll(pageRequest).getContent();
     }
@@ -99,7 +99,7 @@ public class ReportDataService {
      * @return
      */
     private String getExtensions(String fileName){
-        logger.info("Was invoked method to getExtensions");
+//        logger.info("Was invoked method to getExtensions");
         return fileName.substring(fileName.lastIndexOf(".") + 1);
     }
 
