@@ -1,17 +1,16 @@
 package com.example.telegrambot.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
  * Class of cats
  */
 @Entity
+@Table(name="cat")
 public class Cat {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String breed;
     private String name;

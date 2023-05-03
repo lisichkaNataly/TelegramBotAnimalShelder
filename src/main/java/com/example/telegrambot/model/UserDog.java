@@ -5,10 +5,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.util.Objects;
 @Entity
+@Table(name="user_dog")
 public class UserDog {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private int yearOfBirth;
@@ -20,10 +21,10 @@ public class UserDog {
 
     private Status status;
 
-    @JsonBackReference
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dog_id")
-    private Dog dog;
+//    @JsonBackReference
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "dog_id")
+//    private Dog dog;
 
     public UserDog() {
     }
