@@ -7,7 +7,6 @@ create table userDog
     mail          varchar             not null,
     address       varchar             not null,
     chat_id       integer             not null
-        chat_id       integer             not null,
     dog_id        integer             not null,
     cat_id        integer             not null,
     status        varchar(30)         not null,

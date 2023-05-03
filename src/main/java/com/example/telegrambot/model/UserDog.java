@@ -44,19 +44,6 @@ public class UserDog {
         this.chatId = chatId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserDog userDog = (UserDog) o;
-        return yearOfBirth == userDog.yearOfBirth && Objects.equals(id, userDog.id) && Objects.equals(name, userDog.name) && Objects.equals(phone, userDog.phone) && Objects.equals(mail, userDog.mail) && Objects.equals(address, userDog.address);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, yearOfBirth, phone, mail, address);
-    }
-
     public Long getId() {
         return id;
     }
@@ -116,4 +103,18 @@ public class UserDog {
     public Long getChatId() {
         return chatId;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDog userDog = (UserDog) o;
+        return yearOfBirth == userDog.yearOfBirth && Objects.equals(id, userDog.id) && Objects.equals(name, userDog.name) && Objects.equals(phone, userDog.phone) && Objects.equals(mail, userDog.mail) && Objects.equals(address, userDog.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, yearOfBirth, phone, mail, address);
+    }
+
 }
