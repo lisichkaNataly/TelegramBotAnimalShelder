@@ -1,11 +1,3 @@
 databaseChangeLog:
   - include:
       file: liquibase/init.sql
-  - include:
-      file: liquibase/init_table_cat.sql
-  - include:
-      file: liquibase/init_table_dog.sql
-  - include:
-      file: liquibase/init_table_user_cat.sql
-  - include:
-      file: liquibase/init_table_user_dog.sql

@@ -3,10 +3,9 @@ package com.example.telegrambot.repository;
 import com.example.telegrambot.model.UserCat;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Set;
+public interface UserCatRepository extends JpaRepository<UserCat,Long> {
 
-public interface UserCatRepository extends JpaRepository <UserCat, Long> {
+    UserCat findUserCatByChatId(Long chatId);
 
-    Set<UserCat> findByChatId(Long chatId);
-
+    UserCat findUserCatById(Long id);
 }

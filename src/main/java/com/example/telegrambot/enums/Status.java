@@ -1,4 +1,4 @@
-package com.example.telegrambot.model;
+package com.example.telegrambot.enums;
 
 public enum Status {
     APPROVED,

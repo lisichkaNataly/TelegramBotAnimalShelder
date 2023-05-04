@@ -5,25 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-@Entity(name = "user_cat")
-public class UserCat {
-
+@Entity
+public class PhotoReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long chatId;
-    private String name;
-    private String mail;
-    private String phone;
+    private String filePath;
+    private long fileSize;
+    private String mediaType;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
     private Pet pet;
-
-    @OneToMany(mappedBy = "userCat")
-    private List<ReportPet> reportPets;
 }
