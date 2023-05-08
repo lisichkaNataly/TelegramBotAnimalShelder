@@ -25,56 +25,6 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
 
         private final Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
         private final TelegramBot telegramBot;
-    private static final String START_CMD = "/start";
-
-    private static final String GREETING_TEXT = ", Приветствую! Чтобы найти то, что тебе нужно - нажми на нужную кнопку";
-
-    private static final String infoAboutBot = "Информация о возможностях бота \n- Бот может показать информацию о приюте \n" +
-            "- Покажет какие документы нужны \n- Бот может принимать ежедневный отчет о питомце\n" +
-            "- Может передать контактные данные волонтерам для связи";
-    private static final String infoAboutShelterDog = "Наш сайт с информацией о приюте для собак \nhttps://google.com \n" +
-            "Контактные данные \nhttps://yandex.ru\n" +
-            "Общие рекомендации \nhttps://ru.wikipedia.org\n" +
-            "";
-    private static final String infoAboutShelterCat = "Наш сайт с информацией о приюте для кошек \nhttps://google.com \n" +
-            "Контактные данные \nhttps://yandex.ru\n" +
-            "Общие рекомендации \nhttps://ru.wikipedia.org\n" +
-            "";
-    private static final String infoAboutDogs = "Правила знакомства с животным \nhttps://google.com \n" +
-            "Список документов \nhttps://yandex.ru\n" +
-            "Список рекомендаций \nhttps://ru.wikipedia.org\n" +
-            "Советы кинолога \nhttps://ru.wikipedia.org\n" +
-            "Прочая информация \nhttps://google.com\n" +
-            "";
-
-    private static final String infoAboutCats = "Правила знакомства с животным \nhttps://google.com \n" +
-            "Список документов \nhttps://yandex.ru\n" +
-            "Список рекомендаций \nhttps://ru.wikipedia.org\n" +
-            "Прочая информация \nhttps://google.com\n" +
-            "";
-    private static final String infoContactsVolonter = "Контактные данные волонтера  \n @ivan_ivanov \n" +
-            "Телефон - +7 999 999 99 99 \n";
-    private static final String infoAboutReport = "Для отчета нужна следующая информация:\n" +
-            "- Фото животного.  \n" +
-            "- Рацион животного\n" +
-            "- Общее самочувствие и привыкание к новому месту\n" +
-            "- Изменение в поведении: отказ от старых привычек, приобретение новых.\nСкопируйте следующий пример. Не забудьте прикрепить фото";
-
-    private static final String reportExample = "Рацион: ваш текст;\n" +
-            "Самочувствие: ваш текст;\n" +
-            "Поведение: ваш текст;";
-
-    private static final String REGEX_MESSAGE = "(Рацион:)(\\s)(\\W+)(;)\n" +
-            "(Самочувствие:)(\\s)(\\W+)(;)\n" +
-            "(Поведение:)(\\s)(\\W+)(;)";
-
-    private static final long telegramChatVolunteers = -748879962L;
-    private long daysOfReports;
-    private ReportPetRepository reportPetRepository;
-    private UserDogRepository userDogRepository;
-    private UserCatRepository userCatRepository;
-    private KeyBoardShelter keyBoardShelter;
-    private ReportPetService reportPetService;
 
         public TelegramBotUpdatesListener(TelegramBot telegramBot) {
             this.telegramBot = telegramBot;
