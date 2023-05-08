@@ -52,7 +52,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
             "Список рекомендаций \nhttps://ru.wikipedia.org\n" +
             "Прочая информация \nhttps://google.com\n" +
             "";
-    private static final String infoContactsVolonter = "Контактные данные волонтера  \n @a1ekseev_artem \n" +
+    private static final String infoContactsVolonter = "Контактные данные волонтера  \n @ivan_ivanov \n" +
             "Телефон - +7 999 999 99 99 \n";
     private static final String infoAboutReport = "Для отчета нужна следующая информация:\n" +
             "- Фото животного.  \n" +
