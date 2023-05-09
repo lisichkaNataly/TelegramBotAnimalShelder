@@ -1,11 +1,4 @@
 package com.example.telegrambot.listener;
-
-import com.example.telegrambot.repository.ReportPetRepository;
-import com.example.telegrambot.repository.UserCatRepository;
-import com.example.telegrambot.repository.UserDogRepository;
-import com.example.telegrambot.repository.UserRepository;
-import com.example.telegrambot.service.KeyBoardShelter;
-import com.example.telegrambot.service.ReportPetService;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Message;
@@ -16,8 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Component

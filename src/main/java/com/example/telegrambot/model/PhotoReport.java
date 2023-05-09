@@ -6,19 +6,33 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
-@Entity
 public class PhotoReport {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String filePath;
+
+    private byte[] data;
     private long fileSize;
     private String mediaType;
 
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
-    private Pet pet;
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    public long getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(long fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    public String getMediaType() {
+        return mediaType;
+    }
+
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
+    }
 }

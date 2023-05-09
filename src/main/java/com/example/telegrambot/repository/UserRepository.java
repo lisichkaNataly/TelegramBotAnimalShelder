@@ -7,5 +7,5 @@ import java.util.Collection;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     User findUserByChatId(Long chatId);
-    Collection<User> findUserByShelter(String shelter);
+
 }

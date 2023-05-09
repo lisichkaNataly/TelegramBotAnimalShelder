@@ -2,7 +2,6 @@ package com.example.telegrambot.service;
 
 import com.example.telegrambot.model.Pet;
 import com.example.telegrambot.model.PhotoReport;
-import com.example.telegrambot.repository.PhotoReportRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
