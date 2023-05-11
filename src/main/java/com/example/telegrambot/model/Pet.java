@@ -2,32 +2,65 @@ package com.example.telegrambot.model;
 
 
 import com.example.telegrambot.enums.WhichPet;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.util.List;
+import java.util.Objects;
 
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
-@Entity(name = "pets")
+@Entity
 public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private int age;
 
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private WhichPet whichPet;
-    private String breed;
 
-    @OneToMany(mappedBy = "pet")
-    private List<PhotoReport> photoReports;
+    private String nickname;
 
-    public Pet(String name, int age, WhichPet whichPet, String breed) {
+    private Boolean availabilityPet;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public WhichPet getWhichPet() {
+        return whichPet;
+    }
+
+    public void setWhichPet(WhichPet animalType) {
+        this.whichPet = animalType;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public Boolean getAvailabilityPet() {
+        return availabilityPet;
+    }
+
+    public void setAvailabilityPet(Boolean availabilityPet) {
+        this.availabilityPet = availabilityPet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pet animal = (Pet) o;
+        return id.equals(animal.id) && Objects.equals(whichPet, animal.whichPet) && Objects.equals(nickname, animal.nickname) && Objects.equals(availabilityPet, animal.availabilityPet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, whichPet, nickname, availabilityPet);
     }
 }
