@@ -9,7 +9,6 @@ import java.util.Objects;
 
 @Entity
 public class TrialPeriod {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,7 +16,17 @@ public class TrialPeriod {
     private LocalDate endDate;
     private Long volunteerId;
     private Long userId;
-    private Long animalId;
+    private Long petId;
+
+
+    public Long getPetId() {
+        return petId;
+    }
+
+    public void setPetId(Long petId) {
+        this.petId = petId;
+    }
+
 
     public Long getId() {
         return id;
@@ -25,6 +34,14 @@ public class TrialPeriod {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getVolunteerId() {
+        return volunteerId;
+    }
+
+    public void setVolunteerId(Long volunteerId) {
+        this.volunteerId = volunteerId;
     }
 
     public LocalDate getStartDate() {
@@ -43,14 +60,6 @@ public class TrialPeriod {
         this.endDate = endDate;
     }
 
-    public Long getVolunteerId() {
-        return volunteerId;
-    }
-
-    public void setVolunteerId(Long volunteerId) {
-        this.volunteerId = volunteerId;
-    }
-
     public Long getUserId() {
         return userId;
     }
@@ -59,23 +68,15 @@ public class TrialPeriod {
         this.userId = userId;
     }
 
-    public Long getAnimalId() {
-        return animalId;
-    }
-
-    public void setAnimalId(Long animalId) {
-        this.animalId = animalId;
-    }
-
     @Override
     public String toString() {
         return "TrialPeriod{" +
                 "id=" + id +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
+                ", StartDate=" + startDate +
+                ", EndDate=" + endDate +
                 ", volunteerId=" + volunteerId +
                 ", userId=" + userId +
-                ", animalId=" + animalId +
+                ", petId=" + petId +
                 '}';
     }
 
@@ -84,11 +85,11 @@ public class TrialPeriod {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TrialPeriod that = (TrialPeriod) o;
-        return Objects.equals(id, that.id) && Objects.equals(startDate, that.startDate) && Objects.equals(endDate, that.endDate) && Objects.equals(volunteerId, that.volunteerId) && Objects.equals(userId, that.userId) && Objects.equals(animalId, that.animalId);
+        return id.equals(that.id) && Objects.equals(startDate, that.startDate) && Objects.equals(endDate, that.endDate) && volunteerId.equals(that.volunteerId) && userId.equals(that.userId) && petId.equals(that.petId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, startDate, endDate, volunteerId, userId, animalId);
+        return Objects.hash(id, startDate, endDate, volunteerId, userId, petId);
     }
 }

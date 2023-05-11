@@ -1,12 +1,6 @@
 package com.example.telegrambot.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-
-public class PhotoReport {
+public class Photo {
 
     private byte[] data;
     private long fileSize;

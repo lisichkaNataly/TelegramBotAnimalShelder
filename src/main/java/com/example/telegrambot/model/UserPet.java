@@ -1,9 +1,5 @@
 package com.example.telegrambot.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +7,9 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 
+
 @Entity
-public class User {
+public class UserPet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,14 +21,22 @@ public class User {
 
     private String contacts;
 
-    public User() {
+    public UserPet() {
+
     }
 
-    public User(Long id, long userChatId, String fullName, String contacts) {
-        this.id = id;
+    public UserPet(long userChatId, String fullName, String contacts) {
         this.userChatId = userChatId;
         this.fullName = fullName;
         this.contacts = contacts;
+    }
+
+    public long getUserChatId() {
+        return userChatId;
+    }
+
+    public void setUserChatId(long userChatId) {
+        this.userChatId = userChatId;
     }
 
     public Long getId() {
@@ -42,13 +47,6 @@ public class User {
         this.id = id;
     }
 
-    public long getUserChatId() {
-        return userChatId;
-    }
-
-    public void setUserChatId(long userChatId) {
-        this.userChatId = userChatId;
-    }
 
     public String getFullName() {
         return fullName;
@@ -70,8 +68,8 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return userChatId == user.userChatId && Objects.equals(id, user.id) && Objects.equals(fullName, user.fullName) && Objects.equals(contacts, user.contacts);
+        UserPet that = (UserPet) o;
+        return userChatId == that.userChatId && id.equals(that.id) && Objects.equals(fullName, that.fullName) && Objects.equals(contacts, that.contacts);
     }
 
     @Override
@@ -79,3 +77,4 @@ public class User {
         return Objects.hash(id, userChatId, fullName, contacts);
     }
 }
+

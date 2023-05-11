@@ -7,18 +7,18 @@ import org.springframework.data.jpa.repository.Query;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+
 
 public interface TrialPeriodRepository extends JpaRepository<TrialPeriod, Long> {
 
     Collection<TrialPeriod> findAllByVolunteerId(Long volunteerId);
-
     List<TrialPeriod> findAllByEndDate(LocalDate endDate);
-
     TrialPeriod findTrialPeriodByUserId(Long id);
 
     @Query(value = """
     SELECT u.user_chat_id FROM trial_period t
-    JOIN user_custodian u ON (t.user_id = u.id)
+    JOIN user_pet u ON (t.user_id = u.id)
     WHERE t.id = ?1
     """, nativeQuery = true)
     Long  chatIdByByTrialPeriodId(Long id);
@@ -29,4 +29,6 @@ public interface TrialPeriodRepository extends JpaRepository<TrialPeriod, Long> 
     WHERE t.id = ?1
     """, nativeQuery = true)
     Long chatIdByTrialPeriod(Long id);
+
+    Optional<TrialPeriod> findByUserId(Long userId);
 }

@@ -56,7 +56,7 @@ public class Volunteer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Volunteer volunteer = (Volunteer) o;
-        return available == volunteer.available && Objects.equals(id, volunteer.id) && Objects.equals(volunteerName, volunteer.volunteerName) && Objects.equals(chatId, volunteer.chatId);
+        return available == volunteer.available && id.equals(volunteer.id) && Objects.equals(volunteerName, volunteer.volunteerName) && Objects.equals(chatId, volunteer.chatId);
     }
 
     @Override

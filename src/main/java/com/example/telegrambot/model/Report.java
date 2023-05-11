@@ -1,16 +1,13 @@
 package com.example.telegrambot.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 
 @Entity
-public class ReportPet {
+public class Report {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,21 +19,20 @@ public class ReportPet {
 
     private String diet;
 
-    private String wellbeing;
+    private String healthStatus;
 
     private String behaviour;
 
     private Long userId;
 
-    public ReportPet() {
+    public Report() {
     }
 
-    public ReportPet(Long id, LocalDate reportDate, String photo, String diet, String wellbeing, String behaviour, Long userId) {
-        this.id = id;
+    public Report(LocalDate reportDate, String photo, String diet, String healthStatus, String behaviour, Long userId) {
         this.reportDate = reportDate;
         this.photo = photo;
         this.diet = diet;
-        this.wellbeing = wellbeing;
+        this.healthStatus = healthStatus;
         this.behaviour = behaviour;
         this.userId = userId;
     }
@@ -73,12 +69,12 @@ public class ReportPet {
         this.diet = diet;
     }
 
-    public String getWellbeing() {
-        return wellbeing;
+    public String getHealthStatus() {
+        return healthStatus;
     }
 
-    public void setWellbeing(String wellbeing) {
-        this.wellbeing = wellbeing;
+    public void setHealthStatus(String healthStatus) {
+        this.healthStatus = healthStatus;
     }
 
     public String getBehaviour() {
@@ -99,12 +95,12 @@ public class ReportPet {
 
     @Override
     public String toString() {
-        return "ReportPet{" +
+        return "Report{" +
                 "id=" + id +
                 ", reportDate=" + reportDate +
-                ", photo='" + photo + '\'' +
+                ", photo=" + photo +
                 ", diet='" + diet + '\'' +
-                ", wellbeing='" + wellbeing + '\'' +
+                ", healthStatus='" + healthStatus + '\'' +
                 ", behaviour='" + behaviour + '\'' +
                 ", userId=" + userId +
                 '}';
