@@ -43,7 +43,7 @@ public class VolunteerService {
     public Volunteer updateVolunteer(Volunteer volunteer) {
         Volunteer findVolunteer = getVolunteerById(volunteer.getId());
         if (findVolunteer == null) {
-            throw new VolunteerNotFoundException();
+            throw new VolunteerNotFoundException("Volunteer not found.");
         }
         return volunteerRepositiory.save(volunteer);
     }
