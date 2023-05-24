@@ -83,13 +83,13 @@ public class TrialPeriodController {
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    @Operation(summary = "Extend trial period for 15 days", tags = "Trial period Extension")
+    @Operation(summary = "Extend trial period for 14 days", tags = "Trial period Extension")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Trial period has been extended for 15 days",
+            @ApiResponse(responseCode = "200", description = "Trial period has been extended for 14 days",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = TrialPeriod.class))})
     })
-    @PutMapping("/extend15/{id}")
+    @PutMapping("/extend14/{id}")
     public ResponseEntity<TrialPeriod> extendTrialPeriodFor15Days(@PathVariable Long id) {
         TrialPeriod period = trialPeriodService.extendTrialPeriodFor15Days(id);
         if (period != null) {

@@ -25,7 +25,7 @@ public class UserPetController {
     }
 
 
-    @Operation(summary = "Create new User Pet", tags = "userPet")
+    @Operation(summary = "Create new User Pet", tags = "User Pet")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "New User Pet is created",
                     content = {@Content(mediaType = "application/json",

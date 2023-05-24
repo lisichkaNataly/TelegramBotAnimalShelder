@@ -68,8 +68,8 @@ public class TrialPeriodService {
         Optional<TrialPeriod> periodOptional = trialPeriodRepository.findById(id);
         if (periodOptional.isPresent()) {
             TrialPeriod period = periodOptional.get();
-            period.setEndDate(period.getEndDate().plusDays(15));
-            sendMessage(trialPeriodRepository.chatIdByByTrialPeriodId(id), "Здравствуйте, к сожалению, Ваш испытательный срок был продлен на 15 дней. " +
+            period.setEndDate(period.getEndDate().plusDays(14));
+            sendMessage(trialPeriodRepository.chatIdByByTrialPeriodId(id), "Здравствуйте, к сожалению, Ваш испытательный срок был продлен на 14 дней. " +
                     "Уточнить подробности можно, связавшись с волонтером.");
             trialPeriodRepository.save(period);
             return period;
